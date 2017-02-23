@@ -26,8 +26,8 @@ namespace AcademicWork
 				}
 			}
 
-				return customer;
-			}
+			return customer;
+		}
 
 		public static ArticlePrice GetOrderArticle()
 		{
@@ -73,15 +73,21 @@ namespace AcademicWork
 		public static void OrderArticles(Order order)
 		{
 			ArticlePrice article = GetOrderArticle();
-			int amount = GetOrderAmount();
 
-			if (article != ArticlePrice.None && amount != 0 && amount <= 100)
+
+			if (article != ArticlePrice.None)
 			{
-				Article articleItem = new Article(article, amount, CalculateDiscount(order.Customer));
+				
+				int amount = GetOrderAmount();
 
-				order.AddArticle(articleItem);
+				if (amount != 0 && amount <= 100)
+				{
+					Article articleItem = new Article(article, amount, CalculateDiscount(order.Customer));
 
-				Console.WriteLine("Order created!");
+					order.AddArticle(articleItem);
+
+					Console.WriteLine("Order created!");
+				}
 			}
 			else
 			{
@@ -122,6 +128,12 @@ namespace AcademicWork
 
 					var menuEntry = Console.ReadLine();
 
+					if (menuEntry.Equals("menu"))
+					{
+						continueOrder = false;
+						return;
+					}
+
 					if (int.TryParse(menuEntry, out menuChoice))
 					{
 						switch (menuChoice)
@@ -139,6 +151,11 @@ namespace AcademicWork
 		{
 			Console.WriteLine("Provide order number or write 'list orders'" + Environment.NewLine);
 			var ans = Console.ReadLine();
+
+			if (ans.Equals("menu"))
+			{
+				return;
+			}
 
 			if (ans.Equals("list orders"))
 			{
@@ -188,11 +205,6 @@ namespace AcademicWork
 							break;
 						}
 				}
-			}
-			else
-			{
-				Console.WriteLine("Please try again...");
-				Console.ReadKey();
 			}
 		}
 
