@@ -39,6 +39,7 @@ namespace AcademicWork
 							  "2. Block" + Environment.NewLine +
 							  "3. Paper" + Environment.NewLine +
 							  "4. Rubber");
+			
 			var articlerEntry = Console.ReadLine();
 
 			if (int.TryParse(articlerEntry, out articleChoice))
@@ -59,6 +60,7 @@ namespace AcademicWork
 		{
 			int amount = 0;
 			int amountChoice;
+
 			Console.WriteLine("Amount:");
 			var amountEntry = Console.ReadLine();
 
@@ -120,30 +122,39 @@ namespace AcademicWork
 
 				while (continueOrder)
 				{
+					continueOrder = ContinueOrderArticles(order, continueOrder);
+				}
+			}
+		}
 
-					int menuChoice;
+		public static bool ContinueOrderArticles(Order currentOrder, bool continueOrder)
+		{
+			int menuChoice;
 
-					Console.WriteLine("1. Done" + Environment.NewLine +
-									  "2. Continue" + Environment.NewLine);
+			bool continueOrderingArticles = continueOrder;
 
-					var menuEntry = Console.ReadLine();
+			Console.WriteLine("1. Done" + Environment.NewLine +
+							  "2. Continue" + Environment.NewLine);
 
-					if (menuEntry.Equals("menu"))
+			var menuEntry = Console.ReadLine();
+
+			if (menuEntry.Equals("menu"))
+			{
+				continueOrderingArticles = false;
+			}
+			else
+			{
+				if (int.TryParse(menuEntry, out menuChoice))
+				{
+					switch (menuChoice)
 					{
-						continueOrder = false;
-						return;
-					}
-
-					if (int.TryParse(menuEntry, out menuChoice))
-					{
-						switch (menuChoice)
-						{
-							case 1: continueOrder = false; break;
-							case 2: OrderArticles(order); break;
-						}
+						case 1: continueOrderingArticles = false; break;
+						case 2: OrderArticles(currentOrder); break;
 					}
 				}
 			}
+
+			return continueOrderingArticles;
 		}
 
 
@@ -168,10 +179,8 @@ namespace AcademicWork
 				if (int.TryParse(ans, out choice))
 				{
 					var order = orderList.FindAll(x => x.OrderID == choice);
-					if (order != null)
-					{
-						PrintOrders(order);
-					}
+
+					PrintOrders(order);
 				}
 			}
 		}

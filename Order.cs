@@ -33,6 +33,7 @@ namespace AcademicWork
 			get
 			{
 				double total = 0;
+
 				foreach (var article in ArticleList)
 				{
 					total += (int)article.ArticlePrice * article.Amount;
@@ -42,6 +43,7 @@ namespace AcademicWork
 				return total;
 			}
 		}
+
 		public Order(CustomerSuite customer)
 		{
 			OrderID = Interlocked.Increment(ref nextId);
