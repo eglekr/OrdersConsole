@@ -1,0 +1,21 @@
+﻿<Properties StartupConfiguration="{6C3E5B61-505E-4BFC-B039-66AF61B3DBDB}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="OrdersConsole Status">
+    <Files>
+      <File FileName="Program.cs" Line="33" Column="1" />
+      <File FileName="CustomerSuite.cs" Line="7" Column="6" />
+      <File FileName="Order.cs" Line="15" Column="10" />
+      <File FileName="ArticlePrice.cs" Line="5" Column="26" />
+      <File FileName="Article.cs" Line="14" Column="24" />
+      <File FileName="OrdersConsole Status" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.OrdersConsole PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint file="/Users/egsa/Documents/Development/OrdersConsole/ArticleSuite.cs" relfile="ArticleSuite.cs" line="17" column="1" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+</Properties>
